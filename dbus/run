@@ -1,0 +1,5 @@
+#!/bin/bash
+[ -e /run/dbus/pid ] && rm /run/dbus/pid
+[ ! -d /run/dbus ] && install -m755 -g 18 -o 18 -d /run/dbus
+/usr/bin/dbus-uuidgen --ensure
+/usr/bin/dbus-daemon --system --nofork --nopidfile
